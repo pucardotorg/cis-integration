@@ -1,0 +1,21 @@
+[
+  {
+    "purpose_code": "6",
+    "subpurpose_code": "",
+    "case_type_flag": "3",
+    "case_type_code": "55",
+    "dormant_flag": "S",
+    "counsel_present": [
+      "MP"
+    ],
+    "dor_sinedie": false,
+    "through_vc": false,
+    "dispose_flag": false,
+    "type": "next_hearing",
+    "external_id": "trial-next-hearing-1",
+    "cis_cnr": "HRPK020007192026",
+    "proceeding_date": "03-07-2026",
+    "next_hearing_date": "04-07-2026",
+    "business_remarks": "paste it on the wall"
+  }
+]

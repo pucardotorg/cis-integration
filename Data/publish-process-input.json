@@ -1,0 +1,10 @@
+[
+  {
+    "external_id": "trial10",
+    "action": "publish",
+    "cis_cnr": "HRPK020007192026",
+    "process_no": "1",
+    "delete_draft": false,
+    "postcheck": true
+  }
+]

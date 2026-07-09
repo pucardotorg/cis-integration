@@ -1,0 +1,518 @@
+[
+  {
+    "code": "115",
+    "name": "ADJOURNED SINE-DINE"
+  },
+  {
+    "code": "97",
+    "name": "ADMISSION AND DENAIL OF DOCUMENTS"
+  },
+  {
+    "code": "110",
+    "name": "AFTER CHARGE EVIDENCE"
+  },
+  {
+    "code": "6",
+    "name": "APPEARANCE"
+  },
+  {
+    "code": "34",
+    "name": "APPLICANTS EVIDENCE"
+  },
+  {
+    "code": "45",
+    "name": "ARGUMENTS"
+  },
+  {
+    "code": "44",
+    "name": "ARGUMENTS PART HEARD"
+  },
+  {
+    "code": "103",
+    "name": "AWAITING APPEARANCE OF ACCUSED"
+  },
+  {
+    "code": "84",
+    "name": "AWAITING CHALLAN"
+  },
+  {
+    "code": "120",
+    "name": "AWAITING FURTHER ORDERS"
+  },
+  {
+    "code": "106",
+    "name": "AWAITING REPLY/REPORT OF COMMANDING OFFICER AS PER SEC 475 OF CR.P.C."
+  },
+  {
+    "code": "16",
+    "name": "AWAITING REPORT OF COLLECTOR"
+  },
+  {
+    "code": "70",
+    "name": "AWAITING REPORT OF LOCAL COMMISIONER"
+  },
+  {
+    "code": "87",
+    "name": "AWAITING SANCTION"
+  },
+  {
+    "code": "100",
+    "name": "BAILABLE WARRANT OF ACCUSED"
+  },
+  {
+    "code": "5",
+    "name": "COMPLIANCE"
+  },
+  {
+    "code": "28",
+    "name": "COMPROMISE"
+  },
+  {
+    "code": "57",
+    "name": "CONDITIONAL WARRANT OF ARREST"
+  },
+  {
+    "code": "114",
+    "name": "CONDITIONAL WARRANT OF ARREST(NON PAYMENT OF MAINTENANCE)"
+  },
+  {
+    "code": "27",
+    "name": "CONSIDERATION"
+  },
+  {
+    "code": "86",
+    "name": "CONSIDERATION AND SCRUTINY OF DOCUMENTS"
+  },
+  {
+    "code": "118",
+    "name": "CONSIDERATION ON APPLICATION U/S 245 CR.P.C."
+  },
+  {
+    "code": "96",
+    "name": "CONSIDERATION ON APPLICATION U/S 311 CR.P.C"
+  },
+  {
+    "code": "95",
+    "name": "CONSIDERATION ON APPLICATION U/S 319 CR.P.C"
+  },
+  {
+    "code": "61",
+    "name": "CONSIDERATION ON APPLN FOR SETTING ASIDE SALE"
+  },
+  {
+    "code": "108",
+    "name": "CONSIDERATION ON BAIL APPLICATION"
+  },
+  {
+    "code": "89",
+    "name": "CONSIDERATION ON CHARGE"
+  },
+  {
+    "code": "113",
+    "name": "CONSIDERATION ON INTERIM APPLICATION/S"
+  },
+  {
+    "code": "112",
+    "name": "CONSIDERATION ON INTERIM MAINTENANCE APPLICATION"
+  },
+  {
+    "code": "90",
+    "name": "CONSIDERATION ON NOTICE OF ACCUSATION"
+  },
+  {
+    "code": "117",
+    "name": "CONSIDERATION ON SAPURDARI APPLICATION"
+  },
+  {
+    "code": "116",
+    "name": "CONSIDERATION ON WITHDRAWAL FROM PROSECUTION"
+  },
+  {
+    "code": "124",
+    "name": "Contempt"
+  },
+  {
+    "code": "52",
+    "name": "DECREE HOLDERS EVIDENCE"
+  },
+  {
+    "code": "93",
+    "name": "DEFENCE EVIDENCE"
+  },
+  {
+    "code": "38",
+    "name": "DEFENDANTS EVIDENCE"
+  },
+  {
+    "code": "81",
+    "name": "DEPOSITING AMOUNT"
+  },
+  {
+    "code": "1",
+    "name": "ENTRUSTMENT/ALLOCATION"
+  },
+  {
+    "code": "128",
+    "name": "Execution of Bailable Warrant"
+  },
+  {
+    "code": "129",
+    "name": "Execution of Non Bailable Warrants"
+  },
+  {
+    "code": "37",
+    "name": "EX-PARTE EVIDENCE OF APPLICATIONS"
+  },
+  {
+    "code": "40",
+    "name": "EX-PARTE EVIDENCE OF DEFENDANTS IN COUNTER CLAIM"
+  },
+  {
+    "code": "36",
+    "name": "EX-PARTE EVIDENCE OF PETITIONERS"
+  },
+  {
+    "code": "35",
+    "name": "EX-PARTE EVIDENCE OF PLAINTIFFS"
+  },
+  {
+    "code": "41",
+    "name": "EX-PARTE EVIDENCE OF RESPONDANTS"
+  },
+  {
+    "code": "8",
+    "name": "FILING OF COPIES"
+  },
+  {
+    "code": "19",
+    "name": "FILING OF COUNTER CLAIM"
+  },
+  {
+    "code": "49",
+    "name": "FILING OF LIST OF PROPERTY"
+  },
+  {
+    "code": "14",
+    "name": "FILING OF POWER OF ATTORNEY"
+  },
+  {
+    "code": "9",
+    "name": "FILING OF RC/AD, COPIES"
+  },
+  {
+    "code": "24",
+    "name": "FILING OF REJOINDER"
+  },
+  {
+    "code": "22",
+    "name": "FILING OF REPLICATION"
+  },
+  {
+    "code": "23",
+    "name": "FILING OF REPLICATION AND REPLY TO THE COUNTER-CLAIM"
+  },
+  {
+    "code": "20",
+    "name": "FILING OF WRITTEN REPLY"
+  },
+  {
+    "code": "18",
+    "name": "FILING OF WRITTEN STATEMENT"
+  },
+  {
+    "code": "21",
+    "name": "FILING OF WRITTEN STATEMENT AND REPLY TO STAY APPL"
+  },
+  {
+    "code": "94",
+    "name": "FINAL ARGUMENT"
+  },
+  {
+    "code": "43",
+    "name": "FINAL ARGUMENTS"
+  },
+  {
+    "code": "122",
+    "name": "FINAL ORDER"
+  },
+  {
+    "code": "74",
+    "name": "FOR AWAITING FILE"
+  },
+  {
+    "code": "60",
+    "name": "FOR CONFIRMATION OF SALE"
+  },
+  {
+    "code": "30",
+    "name": "FOR FILING AMENDED PLAINT"
+  },
+  {
+    "code": "31",
+    "name": "FOR FILING AMENDED WRITTEN STATEMENT"
+  },
+  {
+    "code": "71",
+    "name": "FOR FILING DRAFT OF SALE DEED"
+  },
+  {
+    "code": "73",
+    "name": "FOR FILING LIST OF GUARDIANS OF MINOR DEFENDANT/S"
+  },
+  {
+    "code": "98",
+    "name": "FOR FURNISHING BAIL BONDS U/S 437-A OF CR.P.C."
+  },
+  {
+    "code": "63",
+    "name": "FOR FURNISHING SECURITY BONDS"
+  },
+  {
+    "code": "62",
+    "name": "FOR ISSUING CERTIFICATE OF SALE"
+  },
+  {
+    "code": "17",
+    "name": "FOR MAKING GOOD THE DEFICIENCY IN COURT FEE"
+  },
+  {
+    "code": "56",
+    "name": "FOR PAYMENT"
+  },
+  {
+    "code": "59",
+    "name": "FOR SALE AND AWAITING REPORT"
+  },
+  {
+    "code": "126",
+    "name": "FRAMING OF CHARGE"
+  },
+  {
+    "code": "29",
+    "name": "FRAMING OF ISSUES"
+  },
+  {
+    "code": "105",
+    "name": "HEARING ON QUESTION OF SENTENCE"
+  },
+  {
+    "code": "7",
+    "name": "HEARING ON STAY APPLICATION EX-PARTE"
+  },
+  {
+    "code": "127",
+    "name": "Issuance of Process Service"
+  },
+  {
+    "code": "46",
+    "name": "JUDGEMENT"
+  },
+  {
+    "code": "77",
+    "name": "JUDICIAL REMAND"
+  },
+  {
+    "code": "79",
+    "name": "JUDICIAL REMAND(TO BE PRODUCED BY WAY OF ELECTRONIC VIDEO LINKAGE)"
+  },
+  {
+    "code": "78",
+    "name": "JUDICIAL REMAND(TO BE PRODUCED IN THE COURT ON NEXT DATE)"
+  },
+  {
+    "code": "101",
+    "name": "NON BAILABLE WARRANT OF ACCUSED"
+  },
+  {
+    "code": "54",
+    "name": "NOTICE OF APPL U/O 21 RULE 66 CPC"
+  },
+  {
+    "code": "55",
+    "name": "NOTICE OF APPL U/O 21 RULE 66 CPC FOR SETTLING TERMS OF SALE"
+  },
+  {
+    "code": "48",
+    "name": "NOTICE OF EXECUTION TO JDS"
+  },
+  {
+    "code": "12",
+    "name": "NOTICE TO RESPONDANTS AND SUMMONING OF RECORDS"
+  },
+  {
+    "code": "111",
+    "name": "NOTICE TO RESPONDENT"
+  },
+  {
+    "code": "72",
+    "name": "NOTING OF DRAFT SALE DEED TO THE JD"
+  },
+  {
+    "code": "51",
+    "name": "OBJECTS EVIDENCE"
+  },
+  {
+    "code": "2",
+    "name": "OFFICE REPORT"
+  },
+  {
+    "code": "47",
+    "name": "ORDER"
+  },
+  {
+    "code": "69",
+    "name": "PASSING OF FINAL ORDER STAYED BY DISTRICT COURT"
+  },
+  {
+    "code": "68",
+    "name": "PASSING OF FINAL ORDER STAYED BY HON'BLE HIGH COURT"
+  },
+  {
+    "code": "67",
+    "name": "PASSING OF FINAL ORDER STAYED BY HON'BLE SUPREME COURT"
+  },
+  {
+    "code": "82",
+    "name": "PAYMENT"
+  },
+  {
+    "code": "33",
+    "name": "PETITIONERS EVIDENCE"
+  },
+  {
+    "code": "32",
+    "name": "PLAINTIFFS EVIDENCE"
+  },
+  {
+    "code": "88",
+    "name": "PLEA BARGAINING"
+  },
+  {
+    "code": "75",
+    "name": "POLICE REMAND"
+  },
+  {
+    "code": "109",
+    "name": "PRE-CHARGE EVIDENCE"
+  },
+  {
+    "code": "107",
+    "name": "PRELIMINARY EVIDENCE"
+  },
+  {
+    "code": "4",
+    "name": "PRELIMINARY HEARING"
+  },
+  {
+    "code": "66",
+    "name": "PROCEEDINGS STAYED BY DISTRICT COURT"
+  },
+  {
+    "code": "65",
+    "name": "PROCEEDINGS STAYED BY HON'BLE HIGH COURT"
+  },
+  {
+    "code": "64",
+    "name": "PROCEEDINGS STAYED BY HON'BLE SUPREME COURT"
+  },
+  {
+    "code": "102",
+    "name": "PROCLAMATION U/S 82 and 83 CR.P.C."
+  },
+  {
+    "code": "15",
+    "name": "PRODUCTION OF DOCUMENTS"
+  },
+  {
+    "code": "80",
+    "name": "PRODUCTION WARRANT"
+  },
+  {
+    "code": "91",
+    "name": "PROSECUTION EVIDENCE"
+  },
+  {
+    "code": "104",
+    "name": "PROSECUTION EVIDENCE U/S 299 CR.P.C."
+  },
+  {
+    "code": "42",
+    "name": "REBUTTAL EVIDENCE"
+  },
+  {
+    "code": "125",
+    "name": "Recovery Certificate"
+  },
+  {
+    "code": "26",
+    "name": "REFERENCE TO ADRM/MEDIATION"
+  },
+  {
+    "code": "83",
+    "name": "REMAND TO OBSERVATION HOME OR NARINIKETAN"
+  },
+  {
+    "code": "123",
+    "name": "Rent Assesment"
+  },
+  {
+    "code": "50",
+    "name": "REPLY TO OBJECTIONS"
+  },
+  {
+    "code": "39",
+    "name": "RESPONDENTS EVIDENCE"
+  },
+  {
+    "code": "3",
+    "name": "SCRUTINY"
+  },
+  {
+    "code": "119",
+    "name": "SEARCH WARRANT"
+  },
+  {
+    "code": "92",
+    "name": "STATEMENT OF ACCUSED U/S 313 CR.P.C."
+  },
+  {
+    "code": "121",
+    "name": "STATEMENT OF PARTIES"
+  },
+  {
+    "code": "25",
+    "name": "STATEMENT OF THE PARTIES U/O C.P.C. AND FOR A.D.R.M.,AS PER SECTION-89 C.P.C."
+  },
+  {
+    "code": "10",
+    "name": "SUBMISSION OF SUMMONS UNDER ORDER 9 RULE 7 OF CPC AS SUBSTITUTED BY THE H.C."
+  },
+  {
+    "code": "99",
+    "name": "SUMMONING OF ACCUSED"
+  },
+  {
+    "code": "11",
+    "name": "SUMMONS TO DEFENDANTS"
+  },
+  {
+    "code": "13",
+    "name": "SUMMONS TO RESPONDENTS"
+  },
+  {
+    "code": "85",
+    "name": "SUPPLY OF COPIES TO ACCUSED"
+  },
+  {
+    "code": "76",
+    "name": "TRANSIT REMAND"
+  },
+  {
+    "code": "53",
+    "name": "WARRANT OF ATTACHMENT"
+  },
+  {
+    "code": "58",
+    "name": "WARRANTS OF POSSESSION"
+  }
+]

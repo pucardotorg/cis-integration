@@ -1,0 +1,13 @@
+{
+  "_comment": "Template for CIS connection settings and active proceedings court. Portable package first-run copies this file to Data/config.json. Fill CIS_USER/CIS_PASSWORD/COURT_NO before live runs. UNLOCK_PASSWORD defaults to CIS_PASSWORD if blank; LOGIN_DATE defaults to today; LANG_ID=0; CLOUD_FLAG=N. COURT_NO is selected inside each CIS stage unless SKIP_COURT_SELECTION=true.",
+  "CIS_BASE_URL": "http://168.144.70.80/swecourtis/",
+  "COURT_CODE": "HRPK02",
+  "CIS_USER": "",
+  "CIS_PASSWORD": "",
+  "UNLOCK_PASSWORD": "",
+  "LOGIN_DATE": "",
+  "LANG_ID": "0",
+  "CLOUD_FLAG": "N",
+  "COURT_NO": "",
+  "SKIP_COURT_SELECTION": false
+}

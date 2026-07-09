@@ -1,0 +1,14 @@
+[
+  {
+    "type": "next_hearing",
+    "external_id": "trial-next-hearing-1",
+    "cis_cnr": "HRPK020007192026",
+    "proceeding_date": "03-07-2026",
+    "purpose_code": "6",
+    "next_hearing_date": "04-07-2026",
+    "business_remarks": "paste it on the wall",
+    "counsel_present": [
+      "MP"
+    ]
+  }
+]

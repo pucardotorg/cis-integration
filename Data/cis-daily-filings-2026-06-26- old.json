@@ -1,0 +1,20 @@
+[
+  {
+    "external_filing_id": "a23436f0-6d99-452c-ac8a-e03e6ee354fc",
+    "app_filing_number": "FL-E23436F9",
+    "court_code": "KL-DISTRICT-01",
+    "complainant_name": "kratos",
+    "complainant_address": "god of war",
+    "complainant_mobile": "7894561230",
+    "accused_name": "zeus",
+    "accused_address": "god of thunder",
+    "accused_mobile": "9876543210",
+    "cheque_amount": "888888",
+    "cheque_number": "999999",
+    "cheque_date": "01-06-2026",
+    "dishonour_date": "18-06-2026",
+    "cause_of_action_date": "20-06-2026",
+    "cause_of_action": "Cheque No. 10291029 dated 20-06-2026 for Rs. 888888 was dishonoured due to Funds insufficient.",
+    "relief": "Complaint under Section 138 of Negotiable Instruments Act."
+  }
+]

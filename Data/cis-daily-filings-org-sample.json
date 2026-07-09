@@ -1,0 +1,36 @@
+[
+  {
+    "external_filing_id": "org-har-sample-001",
+    "court_code": "HRPK03",
+    "complainant_party_type": "organization",
+    "complainant_org_id": "201",
+    "complainant_name": "M/s Incredible Medicare",
+    "complainant_extra_count": "",
+    "complainant_mobile": "",
+    "complainant_email": "",
+    "accused_party_type": "organization",
+    "accused_org_id": "201",
+    "accused_name": "M/s Alaric Life Sciences Pvt. Ltd.",
+    "accused_extra_count": "1",
+    "accused_mobile": "",
+    "accused_email": "",
+    "advocate_name": "Rajesh  Bura",
+    "advocate_bar_number": "P/1006/2008",
+    "advocate_code": "746",
+    "advocate_type": "R",
+    "cheque_amount": "125000",
+    "court_fee": "10",
+    "court_fee_paid": "10",
+    "payment_mode": "2",
+    "filing_date": "08-07-2026",
+    "filing_time": "12:39:58",
+    "acts": [
+      {
+        "act_display": "Bharatiya Nyaya Sanhita-1123",
+        "hidden_act_code": "20230450099001",
+        "act_code": "1123",
+        "section_code": "318(4)"
+      }
+    ]
+  }
+]

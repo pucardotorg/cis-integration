@@ -1,0 +1,28 @@
+[
+  {
+    "external_id": "HAR-168-144-70-80-001",
+    "cis_cnr": "HRPK020007022026",
+    "cis_filing_no": "NACT/23/2026",
+    "fmm_case_type": "55",
+    "fci_cri": "3",
+    "registration_dt": "26-06-2026",
+    "listing_dt": "26-06-2026",
+    "purpose_code": "6",
+    "registration_year": "2026",
+    "mode_of_filing": "2",
+    "role": "1",
+    "ftab_status": "P~R~E~A~F",
+    "fdispactcode": [
+      "Negotiable Instruments Act"
+    ],
+    "fhiddactcode": [
+      "18810260099001 "
+    ],
+    "factcode": [
+      "732"
+    ],
+    "factsection_code": [
+      "138"
+    ]
+  }
+]

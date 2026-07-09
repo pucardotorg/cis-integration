@@ -1,0 +1,16 @@
+[
+  {
+    "type": "disposal",
+    "external_id": "trial-disposal-1",
+    "cis_cnr": "HRPK020007062026",
+    "proceeding_date": "04-07-2026",
+    "decision_date": "03-07-2026",
+    "disposal_type": "25",
+    "disposal_radio_type": "2",
+    "business_remarks": "disposing the case",
+    "counsel_present": [
+      "MP",
+      "MPA"
+    ]
+  }
+]

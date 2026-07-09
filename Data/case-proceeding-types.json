@@ -1,0 +1,117 @@
+{
+  "common": {
+    "description": "Catalogue of operator-facing case proceeding input types. These records are normalized into Data/case-proceeding-input.json before submission.",
+    "defaults": {
+      "purpose_code": "6",
+      "subpurpose_code": "",
+      "case_type_flag": "3",
+      "case_type_code": "55",
+      "dormant_flag": "S",
+      "counsel_present": ["MP"],
+      "dor_sinedie": false,
+      "through_vc": false
+    },
+    "fields": {
+      "cis_cnr": "CNR/CIS CINO, e.g. HRPK020007062026",
+      "proceeding_date": "Date shown on proceeding form, DD-MM-YYYY",
+      "purpose_code": "Purpose of listing code, usually 6 for APPEARANCE in current NACT examples",
+      "business_remarks": "Proceeding/business text entered in fbusiness",
+      "counsel_present": "Array of present party/advocate flags, e.g. [MP] or [MP, MPA]",
+      "appearance_rows": "Optional criminal appearance/process rows prefetched from fetchappearance and posted as appearance_party_no/selProcessIss/fissue_date/fapp_* arrays"
+    }
+  },
+  "types": {
+    "next_hearing": {
+      "description": "Normal case proceeding where the case remains pending and a next hearing date is set.",
+      "required": ["cis_cnr", "proceeding_date", "purpose_code", "next_hearing_date", "business_remarks"],
+      "forbidden": ["decision_date", "disposal_type", "fdt_decision", "fdisp_type", "disposal_radio_type", "radio_disp_type"],
+      "defaults": {
+        "dispose_flag": false,
+        "dormant_flag": "S",
+        "counsel_present": ["MP"]
+      },
+      "specific_fields": {
+        "next_hearing_date": "Next date, DD-MM-YYYY",
+        "dormant_flag": "S for standard pending proceeding"
+      },
+      "example": {
+        "type": "next_hearing",
+        "external_id": "PROC-NEXT-001",
+        "cis_cnr": "HRPK020007042026",
+        "proceeding_date": "04-07-2026",
+        "purpose_code": "6",
+        "next_hearing_date": "05-07-2026",
+        "business_remarks": "Next hearing date given"
+      }
+    },
+    "non_bailable_warrant": {
+      "description": "Pending criminal/NACT proceeding where the purpose of listing is NON BAILABLE WARRANT OF ACCUSED. Normalizes to runtime type next_hearing with purpose_code 101.",
+      "required": ["cis_cnr", "proceeding_date", "purpose_code", "next_hearing_date", "business_remarks"],
+      "forbidden": ["decision_date", "disposal_type", "fdt_decision", "fdisp_type", "disposal_radio_type", "radio_disp_type"],
+      "defaults": {
+        "dispose_flag": false,
+        "dormant_flag": "S",
+        "purpose_code": "101",
+        "case_type_flag": "3",
+        "case_type_code": "55",
+        "counsel_present": ["MP"]
+      },
+      "specific_fields": {
+        "purpose_code": "101 = NON BAILABLE WARRANT OF ACCUSED",
+        "next_hearing_date": "Next date, DD-MM-YYYY",
+        "appearance_rows": "Rows from prefetch can be reviewed/edited before submit"
+      },
+      "example": {
+        "type": "non_bailable_warrant",
+        "external_id": "PROC-NBW-001",
+        "cis_cnr": "HRPK030049362021",
+        "proceeding_date": "07-07-2026",
+        "purpose_code": "101",
+        "next_hearing_date": "30-07-2026",
+        "business_remarks": "hello",
+        "counsel_present": ["MP", "MPA", "ER~1"]
+      }
+    },
+    "disposal": {
+      "description": "Main case disposal using the Case Proceeding disposal checkbox. HAR-backed from walkthro-23062026/case-proceeding_disposal.har.",
+      "required": ["cis_cnr", "proceeding_date", "decision_date", "disposal_type", "business_remarks"],
+      "defaults": {
+        "dispose_flag": true,
+        "dormant_flag": "D",
+        "next_hearing_date": "",
+        "disposal_radio_type": "2",
+        "purpose_code": "6",
+        "counsel_present": ["MP", "MPA"]
+      },
+      "specific_fields": {
+        "decision_date": "Date of decision, DD-MM-YYYY. Posted as fdt_decision.",
+        "disposal_radio_type": "1=Contested, 2=Uncontested. HAR used 2.",
+        "disposal_type": "Nature of disposal code. HAR used 25=ACQUITTED.",
+        "dormant_flag": "D for disposed case",
+        "next_hearing_date": "Must remain blank for disposal"
+      },
+      "known_disposal_types_from_har": {
+        "25": "ACQUITTED",
+        "24": "CONVICTED",
+        "1010": "COMPOUNDED",
+        "35": "COMPOUNDED AND DISPOSED OF.",
+        "23": "DISCHARGED",
+        "21": "DISMISSED FOR WANT OF PROSECUTION",
+        "22": "DISMISSED IN DEFAULT FOR WANT OF PROSECUTION",
+        "1009": "DISPOSED OTHERWISE",
+        "1008": "SETTLED BY A.D.R",
+        "1007": "SETTLED IN LOK ADALAT"
+      },
+      "example": {
+        "type": "disposal",
+        "external_id": "PROC-DISP-001",
+        "cis_cnr": "HRPK020007062026",
+        "proceeding_date": "04-07-2026",
+        "decision_date": "03-07-2026",
+        "disposal_type": "25",
+        "disposal_radio_type": "2",
+        "business_remarks": "disposing the case"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "_comment": "Single source of truth for CIS connection and active proceedings court. Edit this in the Data/ editor. Loaded by source/load_config.sh into env vars before any bridge/verifier run. UNLOCK_PASSWORD defaults to CIS_PASSWORD if absent; LOGIN_DATE defaults to today; LANG_ID=0; CLOUD_FLAG=N. COURT_NO is selected inside each CIS stage unless SKIP_COURT_SELECTION=true.",
+  "CIS_BASE_URL": "http://168.144.70.80/swecourtis/",
+  "COURT_CODE": "HRPK02",
+  "CIS_USER": "supuser",
+  "CIS_PASSWORD": "court123",
+  "UNLOCK_PASSWORD": "court123",
+  "LOGIN_DATE": "",
+  "LANG_ID": "0",
+  "CLOUD_FLAG": "N",
+  "COURT_NO": "48",
+  "SKIP_COURT_SELECTION": false
+}
