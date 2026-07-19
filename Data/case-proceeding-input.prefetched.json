@@ -1,12 +1,14 @@
 [
   {
-    "external_id": "trial10",
-    "cis_cnr": "HRPK020007192026",
-    "proceeding_date": "03-07-2026",
-    "purpose_code": "6",
-    "subpurpose_code": "",
+    "external_id": "PROC-GJAN020123862025",
+    "court_no": "",
+    "cis_cnr": "GJAN020123862025",
+    "type": "next_hearing",
+    "proceeding_date": "15-07-2026",
+    "next_listing_purpose_code": "",
+    "next_listing_subpurpose_code": "",
     "next_hearing_date": "",
-    "business_remarks": "appearing for the case",
+    "business_remarks": "",
     "dormant_flag": "S",
     "case_type_flag": "3",
     "case_type_code": "55",
@@ -14,22 +16,68 @@
       "MP"
     ],
     "dispose_flag": false,
+    "decision_date": "",
+    "disposal_radio_type": "",
+    "disposal_type": "",
     "dor_sinedie": false,
     "through_vc": false,
     "_fetched": {
-      "source": "case_proceeding.fetchdata",
+      "source": "case_proceeding.fetchdata+dependent_panels",
       "requires_user_review": true,
-      "case_number": "205500000112026",
-      "filing_number": "205500000402026",
-      "petitioner_name": "10 complainant",
-      "respondent_name": "10accusedfullname",
-      "previous_purpose_code": "6",
-      "previous_subpurpose_code": "0",
-      "date_of_filing": "2026-07-03",
-      "registration_date": "2026-07-03",
-      "pending_ia": "N",
-      "display_delay_reason_flag": "HIDE",
-      "purpose_flag": "0"
-    }
+      "case_number": "",
+      "filing_number": "",
+      "petitioner_name": "",
+      "respondent_name": "",
+      "current_listing_purpose_code": "",
+      "current_listing_purpose_name": "",
+      "current_listing_subpurpose_code": "",
+      "date_of_filing": "",
+      "registration_date": "",
+      "pending_ia": "",
+      "display_delay_reason_flag": "",
+      "delay_count": "",
+      "purpose_flag": ""
+    },
+    "party_presence_options": [
+      {
+        "value": "MP",
+        "label": "1-SAMIRKHAN AIYUBKHAN PTHAN AS A AUTHORIZED OFFICER OF CHOLAMANDALAM INVESTMENT AND INANCE LTD.-(MP)"
+      },
+      {
+        "value": "MR",
+        "label": "1-ALPESHKUMAR KANUBHAI SOLANKI-(MR)"
+      },
+      {
+        "value": "MPA",
+        "label": "SAMIRKHAN AIYUBKHAN PTHAN AS A AUTHORIZED OFFICER OF CHOLAMANDALAM INVESTMENT AND INANCE LTD. D R BENEVAL (MPA)"
+      }
+    ],
+    "appearance_rows": [
+      {
+        "row": "1",
+        "appearance_party_no": "0",
+        "process_issue": "",
+        "process_issue_label": "",
+        "issue_date": "",
+        "advocate_name": "",
+        "advocate_code": "0",
+        "party_value": "1~ALPESHKUMAR KANUBHAI SOLANKI~0~MR",
+        "party_serial": "1",
+        "party_name": "ALPESHKUMAR KANUBHAI SOLANKI",
+        "party_no": "0",
+        "role": "MR"
+      }
+    ],
+    "status313_rows": [
+      {
+        "row": "1",
+        "status_313": "1",
+        "party_value": "1~ALPESHKUMAR KANUBHAI SOLANKI~0~MR",
+        "party_serial": "1",
+        "party_name": "ALPESHKUMAR KANUBHAI SOLANKI",
+        "party_no": "0",
+        "role": "MR"
+      }
+    ]
   }
 ]

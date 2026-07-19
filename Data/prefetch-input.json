@@ -1,8 +1,7 @@
 [
   {
-    "id": "trial10",
-    "cnr": "HRPK020007192026",
-    "filing": "NACT/40/2026",
-    "stages": "proceeding"
+    "cis_filing_no": "CC/7883/2025",
+    "cis_cnr": "GJAN020123862025",
+    "target_stages": ["case_proceeding"]
   }
 ]

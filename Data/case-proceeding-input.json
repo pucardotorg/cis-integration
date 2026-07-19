@@ -1,21 +1,83 @@
 [
   {
-    "purpose_code": "6",
-    "subpurpose_code": "",
+    "external_id": "PROC-GJAN020123862025",
+    "court_no": "",
+    "cis_cnr": "GJAN020123862025",
+    "type": "next_hearing",
+    "proceeding_date": "15-07-2026",
+    "next_listing_purpose_code": "6",
+    "next_listing_subpurpose_code": "",
+    "next_hearing_date": "17-07-2026",
+    "business_remarks": "summons",
+    "dormant_flag": "S",
     "case_type_flag": "3",
     "case_type_code": "55",
-    "dormant_flag": "S",
     "counsel_present": [
       "MP"
     ],
+    "dispose_flag": false,
+    "decision_date": "",
+    "disposal_radio_type": "",
+    "disposal_type": "",
     "dor_sinedie": false,
     "through_vc": false,
-    "dispose_flag": false,
-    "type": "next_hearing",
-    "external_id": "trial-next-hearing-1",
-    "cis_cnr": "HRPK020007192026",
-    "proceeding_date": "03-07-2026",
-    "next_hearing_date": "04-07-2026",
-    "business_remarks": "paste it on the wall"
+    "_fetched": {
+      "source": "case_proceeding.fetchdata+dependent_panels",
+      "requires_user_review": true,
+      "case_number": "",
+      "filing_number": "",
+      "petitioner_name": "",
+      "respondent_name": "",
+      "current_listing_purpose_code": "98",
+      "current_listing_purpose_name": "",
+      "current_listing_subpurpose_code": "",
+      "date_of_filing": "",
+      "registration_date": "",
+      "pending_ia": "",
+      "display_delay_reason_flag": "",
+      "delay_count": "",
+      "purpose_flag": ""
+    },
+    "party_presence_options": [
+      {
+        "value": "MP",
+        "label": "1-SAMIRKHAN AIYUBKHAN PTHAN AS A AUTHORIZED OFFICER OF CHOLAMANDALAM INVESTMENT AND INANCE LTD.-(MP)"
+      },
+      {
+        "value": "MR",
+        "label": "1-ALPESHKUMAR KANUBHAI SOLANKI-(MR)"
+      },
+      {
+        "value": "MPA",
+        "label": "SAMIRKHAN AIYUBKHAN PTHAN AS A AUTHORIZED OFFICER OF CHOLAMANDALAM INVESTMENT AND INANCE LTD. D R BENEVAL (MPA)"
+      }
+    ],
+    "appearance_rows": [
+      {
+        "row": "1",
+        "appearance_party_no": "0",
+        "process_issue": "",
+        "process_issue_label": "",
+        "issue_date": "",
+        "advocate_name": "",
+        "advocate_code": "0",
+        "party_value": "1~ALPESHKUMAR KANUBHAI SOLANKI~0~MR",
+        "party_serial": "1",
+        "party_name": "ALPESHKUMAR KANUBHAI SOLANKI",
+        "party_no": "0",
+        "role": "MR"
+      }
+    ],
+    "status313_rows": [
+      {
+        "row": "1",
+        "status_313": "1",
+        "party_value": "1~ALPESHKUMAR KANUBHAI SOLANKI~0~MR",
+        "party_serial": "1",
+        "party_name": "ALPESHKUMAR KANUBHAI SOLANKI",
+        "party_no": "0",
+        "role": "MR"
+      }
+    ]
   }
 ]

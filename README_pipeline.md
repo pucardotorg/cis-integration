@@ -1,8 +1,21 @@
 # CIS Pipeline Orchestrator
 
 Runs an ordered list of CIS "use cases" (stages) from a manifest, producing each stage's
-output and a final summary. Current V3 order: **1. Filing → 2. Allocation → 3. Court mapping → 4. Objection → 5. Case registration**. Adding a future use case
-(notice, proceedings, …) is just a new entry in `pipeline.json`.
+output and a final summary. Current V3 manifest order: **filing → allocation →
+select_court → case_objection → registration → case_proceeding → bulk_order_upload →
+process_prefetch → process_generation → process_upload → publish_process** (see
+`Data/pipeline.json`; `publish_process` is `run=false` by default). Adding a future
+use case (notice, proceedings, …) is just a new entry in `pipeline.json`.
+
+> **Roadmap.** Today this pipeline is **standalone**: an operator hand-authors the
+> `Data/*.json` inputs and fires `RUN_PIPELINE.sh` / `RUN_STAGE.sh` manually.
+> Moving it to be **driven by the dristi-v2 app** (`github.com/pucardotorg/dristi-v2`)
+> and to **auto-fire on input arrival** is tracked in
+> [`ROADMAP_dristi_v2_integration.md`](./ROADMAP_dristi_v2_integration.md). That doc
+> is the source of truth for the three pending workstreams:
+> 1. inputs sourced from dristi-v2 (not hand-created),
+> 2. expanding e-filing beyond cheque/NACT to other use cases,
+> 3. a watcher that auto-fires stages when inputs land in the input folder.
 
 ```text
 uploader/V3/RUN_PIPELINE.sh                             # orchestrator (one command)
@@ -37,7 +50,7 @@ a real run to confirm you have the inputs for every step. No CIS login, no write
 ## Pipeline flow
 
 ```
-Drishti filing batch  (carries target_court_no + fmm_case_type per record)
+Drishti filing batch  (carries target_court_no + fmm_case_type per record)   ← today: hand-authored in Data/; target: from dristi-v2 (see ROADMAP)
   │  1. STAGE filing    (cheque bridge, file mode)
   ▼
 output/DDMMYYYY/<run-id>-filing-cis-results.json

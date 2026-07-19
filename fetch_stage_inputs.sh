@@ -72,9 +72,11 @@ RESULT_ABS="$SCRIPT_DIR/$RESULT_REL"
 if $WRITE_DATA; then
   REG_OUT_REL="Data/registration-input.json"
   PROC_OUT_REL="Data/case-proceeding-input.json"
+  ID_OUT_REL="Data/case-identity-input.json"
 else
   REG_OUT_REL="Data/registration-input.prefetched.json"
   PROC_OUT_REL="Data/case-proceeding-input.prefetched.json"
+  ID_OUT_REL="Data/case-identity-input.prefetched.json"
 fi
 
 export CIS_BASE_URL COURT_CODE CIS_USER CIS_PASSWORD UNLOCK_PASSWORD LOGIN_DATE LANG_ID CLOUD_FLAG COURT_NO SKIP_COURT_SELECTION
@@ -89,6 +91,7 @@ Skip court selection: ${SKIP_COURT_SELECTION:-false}
 Input: $SCRIPT_DIR/$INPUT_JSON
 Registration draft: $SCRIPT_DIR/$REG_OUT_REL
 Case proceeding draft: $SCRIPT_DIR/$PROC_OUT_REL
+Case identity draft: $SCRIPT_DIR/$ID_OUT_REL
 Audit output: $RESULT_ABS
 Run ID: $RUN_ID
 EOF
@@ -100,10 +103,11 @@ PREFETCH_RESULT_JSON="$RESULT_ABS" "$PYTHON_BIN" "$SCRIPT_DIR/source/prefetch_ca
   --result-out "$RESULT_ABS" \
   "${ARGS[@]}"
 
-write_run_manifest "prefetch" "$INPUT_JSON" "$RESULT_REL" "$REG_OUT_REL" "$PROC_OUT_REL"
+write_run_manifest "prefetch" "$INPUT_JSON" "$RESULT_REL" "$REG_OUT_REL" "$PROC_OUT_REL" "$ID_OUT_REL"
 
 echo ""
 echo "Done. Prefetch outputs:"
 echo "$SCRIPT_DIR/$REG_OUT_REL"
 echo "$SCRIPT_DIR/$PROC_OUT_REL"
+echo "$SCRIPT_DIR/$ID_OUT_REL"
 echo "$RESULT_ABS"

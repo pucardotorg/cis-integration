@@ -24,7 +24,7 @@ from pathlib import Path
 from typing import Callable
 
 from cis_fetch_common import CisError, CisSession, load_config
-from cis_stage_fetchers import fetch_case_proceeding, fetch_registration
+from cis_stage_fetchers import fetch_case_proceeding, fetch_case_identity, fetch_registration
 
 STAGE_ALIASES = {
     "registration": "registration",
@@ -35,9 +35,13 @@ STAGE_ALIASES = {
     "proceeding": "case_proceeding",
     "proceedings": "case_proceeding",
     "processing": "case_proceeding",
+    "case_identity": "case_identity",
+    "case-identity": "case_identity",
+    "identity": "case_identity",
+    "case_id": "case_identity",
 }
 DEFAULT_STAGES = ["registration", "case_proceeding"]
-STAGE_ORDER = {"registration": 0, "case_proceeding": 1}
+STAGE_ORDER = {"registration": 0, "case_proceeding": 1, "case_identity": 0}
 
 
 def _now_iso() -> str:
@@ -177,16 +181,23 @@ def _trim_stage_audit(stage_result: dict, include_raw: bool) -> dict:
                 "next_hearing_date": draft.get("next_hearing_date"),
                 "next_listing_purpose_code": draft.get("next_listing_purpose_code"),
             })
+        if "case_no" in draft and "cis_filing_no" in draft:
+            out["draft_summary"].update({
+                "case_no": draft.get("case_no"),
+                "cis_filing_no": draft.get("cis_filing_no"),
+                "pet_name": draft.get("pet_name"),
+            })
     fetched = stage_result.get("fetched") or {}
     if isinstance(fetched, dict):
         out["fetched"] = fetched if include_raw else {"page_form_fields": fetched.get("page_form_fields")}
     return out
 
 
-def prefetch(records: list[dict], root: Path, cli_stages: list[str] | None, include_raw: bool) -> tuple[list[dict], list[dict], list[dict]]:
+def prefetch(records: list[dict], root: Path, cli_stages: list[str] | None, include_raw: bool) -> tuple[list[dict], list[dict], list[dict], list[dict]]:
     config = load_config(root)
     registration_records: list[dict] = []
     proceeding_records: list[dict] = []
+    identity_records: list[dict] = []
     audit: list[dict] = []
 
     print(f"CIS URL: {config.base_url}", file=sys.stderr)
@@ -196,7 +207,7 @@ def prefetch(records: list[dict], root: Path, cli_stages: list[str] | None, incl
     print(f"Input records: {len(records)}", file=sys.stderr)
     if not records:
         print("No input records; writing empty prefetch outputs without CIS login.", file=sys.stderr)
-        return registration_records, proceeding_records, audit
+        return registration_records, proceeding_records, identity_records, audit
 
     session = CisSession(config)
     print("Logging in to CIS...", file=sys.stderr)
@@ -212,6 +223,7 @@ def prefetch(records: list[dict], root: Path, cli_stages: list[str] | None, incl
         fetchers: dict[str, Callable[[CisSession, dict], dict]] = {
             "registration": fetch_registration,
             "case_proceeding": fetch_case_proceeding,
+            "case_identity": fetch_case_identity,
         }
         for idx, record in enumerate(records):
             ext = _external_id(record, idx)
@@ -246,6 +258,10 @@ def prefetch(records: list[dict], root: Path, cli_stages: list[str] | None, incl
                         proceeding_records.append(draft)
                         stage_audit = _trim_stage_audit(result, include_raw)
                         stage_audit["draft_record_index"] = len(proceeding_records) - 1
+                    elif stage == "case_identity" and isinstance(draft, dict):
+                        identity_records.append(draft)
+                        stage_audit = _trim_stage_audit(result, include_raw)
+                        stage_audit["draft_record_index"] = len(identity_records) - 1
                     else:
                         stage_audit = {"status": "failed", "error": {"code": "missing_draft", "message": "fetcher did not return a draft object"}}
                     item_audit[stage] = stage_audit
@@ -266,7 +282,7 @@ def prefetch(records: list[dict], root: Path, cli_stages: list[str] | None, incl
         session.logout()
         print("CIS logout complete.", file=sys.stderr)
 
-    return registration_records, proceeding_records, audit
+    return registration_records, proceeding_records, identity_records, audit
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
@@ -276,6 +292,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--stages", default="", help="comma-separated stage filter: registration,case_proceeding")
     parser.add_argument("--registration-out", default="Data/registration-input.prefetched.json")
     parser.add_argument("--case-proceeding-out", default="Data/case-proceeding-input.prefetched.json")
+    parser.add_argument("--case-identity-out", default="Data/case-identity-input.prefetched.json")
     parser.add_argument("--result-out", default=os.environ.get("PREFETCH_RESULT_JSON") or os.environ.get("OUTPUT_JSON") or "")
     parser.add_argument("--write-data", action="store_true", help="write canonical Data/*-input.json instead of *.prefetched.json")
     parser.add_argument("--include-raw", action="store_true", help="include raw read-AJAX JSON in audit output")
@@ -288,9 +305,11 @@ def main(argv: list[str] | None = None) -> int:
     input_path = _resolve(root, args.input_json)
     reg_out = _resolve(root, args.registration_out)
     proc_out = _resolve(root, args.case_proceeding_out)
+    id_out = _resolve(root, args.case_identity_out)
     if args.write_data:
         reg_out = root / "Data" / "registration-input.json"
         proc_out = root / "Data" / "case-proceeding-input.json"
+        id_out = root / "Data" / "case-identity-input.json"
 
     result_out = _resolve(root, args.result_out) if args.result_out else None
     cli_stages = None
@@ -298,15 +317,17 @@ def main(argv: list[str] | None = None) -> int:
         cli_stages = [_normalise_stage_name(s.strip()) for s in args.stages.split(",") if s.strip()]
 
     records = _load_records(input_path)
-    registration_records, proceeding_records, audit = prefetch(records, root, cli_stages, args.include_raw)
+    registration_records, proceeding_records, identity_records, audit = prefetch(records, root, cli_stages, args.include_raw)
 
     wrote: list[str] = []
     # Write only requested/produced outputs. Empty arrays are still useful when a
-    # user explicitly requested that stage, so always write both default draft files.
+    # user explicitly requested that stage, so always write all three default draft files.
     _write_json(reg_out, registration_records)
     wrote.append(_rel(root, reg_out))
     _write_json(proc_out, proceeding_records)
     wrote.append(_rel(root, proc_out))
+    _write_json(id_out, identity_records)
+    wrote.append(_rel(root, id_out))
 
     summary = {
         "kind": "prefetch_case_data",
@@ -314,8 +335,10 @@ def main(argv: list[str] | None = None) -> int:
         "started_finished_at": _now_iso(),
         "registration_output": _rel(root, reg_out),
         "case_proceeding_output": _rel(root, proc_out),
+        "case_identity_output": _rel(root, id_out),
         "registration_records": len(registration_records),
         "case_proceeding_records": len(proceeding_records),
+        "case_identity_records": len(identity_records),
         "records": audit,
     }
     if result_out:
@@ -327,6 +350,7 @@ def main(argv: list[str] | None = None) -> int:
         "input_records": len(records),
         "registration_records": len(registration_records),
         "case_proceeding_records": len(proceeding_records),
+        "case_identity_records": len(identity_records),
         "wrote": wrote,
     }, ensure_ascii=False, indent=2))
     return 0

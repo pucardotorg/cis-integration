@@ -197,8 +197,17 @@ RUN_TARGETS = {
         "allow_input": False,
         "files": ["process-upload-input.json"],
     },
+    "process_status_fetch": {
+        "label": "11. Fetch process status",
+        "description": "Read-only fetch of process status rows for a date period using Data/process-status-input.json.",
+        "command": ["bash", "RUN_STAGE.sh", "process_status_fetch"],
+        "kind": "check",
+        "cis_writes": False,
+        "allow_input": False,
+        "files": ["process-status-input.json", "config.json"],
+    },
     "publish_process": {
-        "label": "11. Publish process (optional)",
+        "label": "12. Publish process (optional)",
         "description": "Runs optional pipeline stage 'publish_process' using Data/publish-process-input.json.",
         "command": ["bash", "RUN_STAGE.sh", "publish_process"],
         "kind": "stage",
@@ -207,7 +216,7 @@ RUN_TARGETS = {
         "files": ["publish-process-input.json"],
     },
     "delete_process_draft": {
-        "label": "12. Delete generated process draft",
+        "label": "13. Delete generated process draft",
         "description": "Deletes the generated draft process/notices using Data/publish-process-input.json (HAR: publish-process-delete.har).",
         "command": ["bash", "RUN_STAGE.sh", "publish_process"],
         "kind": "stage",

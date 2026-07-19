@@ -1,0 +1,1541 @@
+[
+  {
+    "case_type": "2",
+    "type_name": "BORA",
+    "full_form": "BOARD REFERENCE APPEAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5018"
+  },
+  {
+    "case_type": "3",
+    "type_name": "CMA DC",
+    "full_form": "CIVIL MISC. APPLICATION - DISTRICT COURT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "4",
+    "type_name": "CMA SC",
+    "full_form": "CIVIL MISC. APPLICATION - SR/CIVIL/SMALL CAUSE COU",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "5",
+    "type_name": "CRA",
+    "full_form": "CIVIL REVISION APPLICATION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5013"
+  },
+  {
+    "case_type": "6",
+    "type_name": "CS CCC",
+    "full_form": "CIVIL SUIT (CCC)",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "7",
+    "type_name": "CFR",
+    "full_form": "COURT FEES REFERENCE",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "8",
+    "type_name": "ELEP",
+    "full_form": "ELECTION PETITION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5003"
+  },
+  {
+    "case_type": "9",
+    "type_name": "EXE LAR",
+    "full_form": "EXECUTION PETITION - LAR",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5006"
+  },
+  {
+    "case_type": "10",
+    "type_name": "EXE R",
+    "full_form": "EXECUTION PETITION - REGULAR",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5006"
+  },
+  {
+    "case_type": "11",
+    "type_name": "EXE SM",
+    "full_form": "EXECUTION PETITION - SMALL CAUSE",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5015"
+  },
+  {
+    "case_type": "12",
+    "type_name": "EXE S",
+    "full_form": "EXECUTION PETITION - SPECIAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5006"
+  },
+  {
+    "case_type": "13",
+    "type_name": "HMP",
+    "full_form": "HINDU MARRIAGE PETITION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5002"
+  },
+  {
+    "case_type": "14",
+    "type_name": "INS P",
+    "full_form": "INSOLVENCY PETITION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5014"
+  },
+  {
+    "case_type": "15",
+    "type_name": "LAR",
+    "full_form": "LAND ACQUISITION REFERENCE CASE",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5004"
+  },
+  {
+    "case_type": "16",
+    "type_name": "MA 291",
+    "full_form": "MISC. APPLI. U/R. 291 CIVIL MANUAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "17",
+    "type_name": "MCA",
+    "full_form": "MISC. CIVIL APPEAL (APPEAL FROM ORDER)",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5018"
+  },
+  {
+    "case_type": "18",
+    "type_name": "MA",
+    "full_form": "MUNICIPAL APPEAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5018"
+  },
+  {
+    "case_type": "19",
+    "type_name": "PRCPT",
+    "full_form": "PRECEPT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5015"
+  },
+  {
+    "case_type": "20",
+    "type_name": "RCA",
+    "full_form": "REGULAR CIVIL APPEAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5012"
+  },
+  {
+    "case_type": "21",
+    "type_name": "RCS",
+    "full_form": "REGULAR CIVIL SUIT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "22",
+    "type_name": "REWA",
+    "full_form": "REVIEW APPLICATION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "23",
+    "type_name": "STAT APP",
+    "full_form": "S.T.A.T. APPEAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5018"
+  },
+  {
+    "case_type": "24",
+    "type_name": "STAT MISC",
+    "full_form": "S.T.A.T. MISC. APPLICATION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "25",
+    "type_name": "STAT REV",
+    "full_form": "S.T.A.T. REVISION APPLICATION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5013"
+  },
+  {
+    "case_type": "26",
+    "type_name": "SMC PSRP",
+    "full_form": "SMALL CAUSE - P.S.R.P",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5014"
+  },
+  {
+    "case_type": "27",
+    "type_name": "SMC CAPW",
+    "full_form": "SMALL CAUSE CIVIL APPEAL - PAYMENT OF WAGES(CAPW)",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5018"
+  },
+  {
+    "case_type": "28",
+    "type_name": "SMC CMP PTN",
+    "full_form": "SMALL CAUSE COMPENSATION PETITION - BPMC",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5014"
+  },
+  {
+    "case_type": "29",
+    "type_name": "SMC NTA",
+    "full_form": "SMALL CAUSE NEW TRIAL APPLICATION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "30",
+    "type_name": "SMCST",
+    "full_form": "SMALL CAUSE SUIT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5014"
+  },
+  {
+    "case_type": "31",
+    "type_name": "SPCS",
+    "full_form": "SPECIAL CIVIL SUIT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "32",
+    "type_name": "SPCS EL",
+    "full_form": "SPECIAL CIVIL SUIT - ELECTRICITY",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "33",
+    "type_name": "SMP",
+    "full_form": "SPECIAL MARRIAGE PETITION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5002"
+  },
+  {
+    "case_type": "34",
+    "type_name": "SMST R",
+    "full_form": "SUMMARY SUIT - REGULAR",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5014"
+  },
+  {
+    "case_type": "35",
+    "type_name": "SMST S",
+    "full_form": "SUMMARY SUIT - SPECIAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5014"
+  },
+  {
+    "case_type": "36",
+    "type_name": "TPA",
+    "full_form": "TOWN PLANNING APPEAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5018"
+  },
+  {
+    "case_type": "37",
+    "type_name": "TMSUIT",
+    "full_form": "TRADE MARK SUIT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "38",
+    "type_name": "TSUIT",
+    "full_form": "TRUST SUIT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "39",
+    "type_name": "WAQF APL",
+    "full_form": "WAQF APPEAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5012"
+  },
+  {
+    "case_type": "40",
+    "type_name": "FSUIT",
+    "full_form": "FAMILY SUIT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5002"
+  },
+  {
+    "case_type": "41",
+    "type_name": "WAQF",
+    "full_form": "WAQF CASES",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "42",
+    "type_name": "WAQF REF",
+    "full_form": "WAQF REFERENCE",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5014"
+  },
+  {
+    "case_type": "43",
+    "type_name": "SRA",
+    "full_form": "STANDARD RENT APPLICATION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5014"
+  },
+  {
+    "case_type": "44",
+    "type_name": "INTER",
+    "full_form": "INTERLOCUTORY APPLICATIONS",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "45",
+    "type_name": "COMM CS",
+    "full_form": "COMMERCIAL CIVIL SUIT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "46",
+    "type_name": "COMM TMCS",
+    "full_form": "COMMERCIAL TRADEMARK CIVIL SUIT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "47",
+    "type_name": "COMM CMA",
+    "full_form": "COMMERCIAL CIVIL MISC APPLICATION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "48",
+    "type_name": "COMM EX",
+    "full_form": "COMMERCIAL EXECUTION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5006"
+  },
+  {
+    "case_type": "49",
+    "type_name": "COMM REWA",
+    "full_form": "COMMERCIAL REVIEW APPLICATION",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "50",
+    "type_name": "COMM APL",
+    "full_form": "COMMERCIAL APPEAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5012"
+  },
+  {
+    "case_type": "51",
+    "type_name": "CBI CR",
+    "full_form": "CBI CLOSURE REPORT",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6008"
+  },
+  {
+    "case_type": "52",
+    "type_name": "CBI CR A",
+    "full_form": "CBI CRIMINAL APPEAL",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6003"
+  },
+  {
+    "case_type": "53",
+    "type_name": "CBI CC",
+    "full_form": "CBI CRIMINAL CASE",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "54",
+    "type_name": "CBI CRMA",
+    "full_form": "CBI CRIMINAL MISC. APPLICATION",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6007"
+  },
+  {
+    "case_type": "55",
+    "type_name": "CBI CR REV",
+    "full_form": "CBI CRIMINAL REVISION APPLICATION",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6004"
+  },
+  {
+    "case_type": "56",
+    "type_name": "CBI SC",
+    "full_form": "CBI SESSIONS CASE",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "57",
+    "type_name": "CBI SPCC",
+    "full_form": "CBI SPECIAL CASE",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "58",
+    "type_name": "CR A",
+    "full_form": "CRIMINAL APPEAL",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6003"
+  },
+  {
+    "case_type": "59",
+    "type_name": "CC",
+    "full_form": "CRIMINAL CASE",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6002"
+  },
+  {
+    "case_type": "60",
+    "type_name": "CC JUVE",
+    "full_form": "CRIMINAL CASE - JUVENILE",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6006"
+  },
+  {
+    "case_type": "61",
+    "type_name": "CC RLY",
+    "full_form": "CRIMINAL CASE - RAILWAY",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6002"
+  },
+  {
+    "case_type": "62",
+    "type_name": "CR EN",
+    "full_form": "CRIMINAL ENQUIRY",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6008"
+  },
+  {
+    "case_type": "63",
+    "type_name": "CRMA J",
+    "full_form": "CRIMINAL MISC. APPLICATION - JMFC",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6007"
+  },
+  {
+    "case_type": "64",
+    "type_name": "CRMA S",
+    "full_form": "CRIMINAL MISC. APPLICATION - SESSIONS",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6005"
+  },
+  {
+    "case_type": "65",
+    "type_name": "CR RA",
+    "full_form": "CRIMINAL REVISION APPLICATION",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6004"
+  },
+  {
+    "case_type": "66",
+    "type_name": "MTA",
+    "full_form": "MUNICIPAL TAX APPEAL",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5018"
+  },
+  {
+    "case_type": "67",
+    "type_name": "SC",
+    "full_form": "SESSIONS CASE",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "68",
+    "type_name": "ACB",
+    "full_form": "SPECIAL CASE - ACB",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "69",
+    "type_name": "ATRO",
+    "full_form": "SPECIAL CASE - ATRO",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "70",
+    "type_name": "ELEC",
+    "full_form": "SPECIAL CASE - ELECTRICITY",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "71",
+    "type_name": "HR",
+    "full_form": "SPECIAL CASE - HUMAN RIGHTS",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "72",
+    "type_name": "NDPS",
+    "full_form": "SPECIAL CASE - NDPS",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "73",
+    "type_name": "POTA",
+    "full_form": "SPECIAL CASE - POTA",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "74",
+    "type_name": "TADA",
+    "full_form": "SPECIAL CASE - TADA",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "75",
+    "type_name": "SMRY",
+    "full_form": "SUMMARY",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5014"
+  },
+  {
+    "case_type": "76",
+    "type_name": "PCSO",
+    "full_form": "SPECIAL CASE-PCSO",
+    "type_flag": "Criminal",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "77",
+    "type_name": "PMLA",
+    "full_form": "SPECIAL CASE-PMLA",
+    "type_flag": "Criminal",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "78",
+    "type_name": "ACB CR",
+    "full_form": "ACB CLOSER REPORT",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6008"
+  },
+  {
+    "case_type": "79",
+    "type_name": "NIA SPC",
+    "full_form": "SPECIAL CASE-NIA",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "80",
+    "type_name": "NIA CR",
+    "full_form": "NIA-CLOSURE REPORT",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6008"
+  },
+  {
+    "case_type": "81",
+    "type_name": "NIA CRMA",
+    "full_form": "NIA-CRIMINAL MISC. APPLICATION",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6007"
+  },
+  {
+    "case_type": "82",
+    "type_name": "SPCS COMP",
+    "full_form": "SPECIAL CASE - COMPANIES ACT",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "83",
+    "type_name": "DRCM",
+    "full_form": "SPECIAL CASE-DRUGS AND COSM",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "84",
+    "type_name": "RPD CC",
+    "full_form": "RPD Criminal Case",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6002"
+  },
+  {
+    "case_type": "85",
+    "type_name": "RPD CRMA",
+    "full_form": "RPD Criminal Misc. Case",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5007"
+  },
+  {
+    "case_type": "86",
+    "type_name": "GPID CC",
+    "full_form": "GPID Criminal Case",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6002"
+  },
+  {
+    "case_type": "87",
+    "type_name": "GPID CRMA",
+    "full_form": "GPID Criminal Misc. Appl.",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6007"
+  },
+  {
+    "case_type": "91",
+    "type_name": "MACEX",
+    "full_form": "MAC EXECUTION PETITION",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5006"
+  },
+  {
+    "case_type": "92",
+    "type_name": "MACMA",
+    "full_form": "MAC MISC. APPLICATION",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "93",
+    "type_name": "MACP",
+    "full_form": "MAC PETITION",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5005"
+  },
+  {
+    "case_type": "94",
+    "type_name": "MACRP",
+    "full_form": "MAC REVIEW APPLICATION",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "95",
+    "type_name": "RPD CMA",
+    "full_form": "RPD Civil Misc. Appl.",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5016"
+  },
+  {
+    "case_type": "96",
+    "type_name": "GPID CVC",
+    "full_form": "GPID Civil Case",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5014"
+  },
+  {
+    "case_type": "97",
+    "type_name": "GLGP",
+    "full_form": "GUJARAT LAND GRABBING PROHIBITION SPECIAL CASES",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "98",
+    "type_name": "GLGPCIVIL",
+    "full_form": "GUJARAT LAND GRABBING PROHIBITION CIVIL CASES",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5001"
+  },
+  {
+    "case_type": "99",
+    "type_name": "GCTOC",
+    "full_form": "GUJARAT CONTROL OF TERRORISM AND ORGANIZED CRIME CASES",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6001"
+  },
+  {
+    "case_type": "100",
+    "type_name": "COMM-MCA",
+    "full_form": "COMMERCIAL MISC. CIVIL APPEAL",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5018"
+  },
+  {
+    "case_type": "101",
+    "type_name": "eCC",
+    "full_form": "eCRIMINAL CASE",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6002"
+  },
+  {
+    "case_type": "102",
+    "type_name": "eCR EN",
+    "full_form": "eCRIMINAL ENQUIRY",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6008"
+  },
+  {
+    "case_type": "103",
+    "type_name": "eCRMA J",
+    "full_form": "eCRIMINAL MISC. APPLICATION - JMFC",
+    "type_flag": "Criminal",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "6007"
+  },
+  {
+    "case_type": "151",
+    "type_name": "REF-IC1",
+    "full_form": "REFERENCE (I.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "152",
+    "type_name": "APPEAL IC",
+    "full_form": "APPEAL I.C.",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "153",
+    "type_name": "RVSN IC",
+    "full_form": "REVISION APPLICATION IC",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "154",
+    "type_name": "MISCAPP-IC",
+    "full_form": "MISC. APPLICATION (I.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "155",
+    "type_name": "REVIEW-IC",
+    "full_form": "REVIEW APPLICATION-I.C.",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "156",
+    "type_name": "CRRA-IC",
+    "full_form": "CRIMINAL REVISION APPLICATION (I.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "157",
+    "type_name": "INTER",
+    "full_form": "INTERPRETATION APPLICATION",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "158",
+    "type_name": "SUB-IC",
+    "full_form": "SUBMISSION (I.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "159",
+    "type_name": "CRTENQ-IC",
+    "full_form": "COURT OF ENQUIRY (I.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "160",
+    "type_name": "CRAPP-IC",
+    "full_form": "CRIMINAL APPLICATION (I.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "161",
+    "type_name": "APP-IC",
+    "full_form": "APPLICATION (I.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "162",
+    "type_name": "REF IT",
+    "full_form": "REFERENCE I.T.",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "163",
+    "type_name": "REF-ITC",
+    "full_form": "REFERENCE (I.T.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "164",
+    "type_name": "COMP IT",
+    "full_form": "COMPLAINT I.T.",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "165",
+    "type_name": "COMP-ITC",
+    "full_form": "COMPLAINT (I.T.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "166",
+    "type_name": "REVIEW IT",
+    "full_form": "REVIEW APPLICATION-I.T.",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "167",
+    "type_name": "REVIEW-ITC",
+    "full_form": "REVIEW APPLICATION (I.T.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "168",
+    "type_name": "MISCAPP  IT",
+    "full_form": "MISC. APPLICATION I.T.",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "169",
+    "type_name": "MISCAPP-ITC",
+    "full_form": "MISC. APPLICATION (I.T.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "170",
+    "type_name": "PRMSN  IT",
+    "full_form": "PERMISSION APPLICATION  IT",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "171",
+    "type_name": "PRMSN-ITC",
+    "full_form": "PERMISSION APPLICATION (I.T.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "172",
+    "type_name": "APPEAL-IESO",
+    "full_form": "APPEAL (IESO ACT)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "173",
+    "type_name": "REF-TU",
+    "full_form": "REFERENCE (T.U.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "174",
+    "type_name": "APPEAL-TU",
+    "full_form": "APPEAL (T.U.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "175",
+    "type_name": "APPLN ESI",
+    "full_form": "APPLICATION E.S.I.",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "176",
+    "type_name": "1STAPL ESI",
+    "full_form": "FIRST APPEAL ESI",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "177",
+    "type_name": "2NDAPL ESI",
+    "full_form": "SECOND APPEAL E.S.I.",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "178",
+    "type_name": "REVIEW-ESI",
+    "full_form": "REVIEW APPLICATION (E.S.I.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "179",
+    "type_name": "MISCAPP  ESI",
+    "full_form": "MISC APPLICATION E.S.I.",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "180",
+    "type_name": "REF IC",
+    "full_form": "REFERENCE  IC",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "181",
+    "type_name": "APP IT",
+    "full_form": "APPLICATION I.T.",
+    "type_flag": "Civil",
+    "macp": "N",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "182",
+    "type_name": "APP-ITC",
+    "full_form": "APPLICATION (I.T.C.)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "183",
+    "type_name": "REF-LCIDAT",
+    "full_form": "Refrence L.C.I.D.A.T.",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "184",
+    "type_name": "COMP-LCIDAT",
+    "full_form": "COMPLAINT L.C.I.D.A.T",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "185",
+    "type_name": "MISC-LCIDAT",
+    "full_form": "MISC. APPLICATION  L.C.I.D.A.T. - UNDER RULE-26A",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "186",
+    "type_name": "REV-LCIDAT",
+    "full_form": "REVIEW APPLICATION  L.C.I.D.A.T. - UNDER RULE -31",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5008"
+  },
+  {
+    "case_type": "187",
+    "type_name": "INTER-A",
+    "full_form": "INTERLOCUTORY/INTERIM RELIEF APPLICATION",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "188",
+    "type_name": "PRELIM-A",
+    "full_form": "PRELIMINARY ISSUE APPLICATION",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5009"
+  },
+  {
+    "case_type": "300",
+    "type_name": "STRIKE-LC",
+    "full_form": "Application for illegal strike",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "301",
+    "type_name": "CHANGE-LC",
+    "full_form": "Application for illegal change",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "302",
+    "type_name": "TAPP-LC",
+    "full_form": "Application for Termination",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "303",
+    "type_name": "BIR-LC",
+    "full_form": "B.I.R. misc. Application",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "304",
+    "type_name": "CRCMP-LC",
+    "full_form": "Criminal Complaint",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "305",
+    "type_name": "REFER-LC",
+    "full_form": "B.I.R. Referance",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "306",
+    "type_name": "REFER-T-LC",
+    "full_form": "Referance T",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "307",
+    "type_name": "REFER-D-LC",
+    "full_form": "Referance D",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "308",
+    "type_name": "RECO33C1-LC",
+    "full_form": "Recovery 33C (1)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "309",
+    "type_name": "RECO33C2-LC",
+    "full_form": "Recovery 33C (2)",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "310",
+    "type_name": "MISC26A-LC",
+    "full_form": "Misc. Application - Under Rule-26A",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "311",
+    "type_name": "COMP-LC",
+    "full_form": "Complaint",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "312",
+    "type_name": "PERM-LC",
+    "full_form": "Permision",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "313",
+    "type_name": "APPR-LC",
+    "full_form": "Approval",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "314",
+    "type_name": "IESO-LC",
+    "full_form": "Industrial Employee Stand Order",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "315",
+    "type_name": "REV31-LC",
+    "full_form": "Review Application - Under Rule-31",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5011"
+  },
+  {
+    "case_type": "316",
+    "type_name": "WC-FATAL-LC",
+    "full_form": "W.C. Application Fatal",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "317",
+    "type_name": "WC-NFATAL-L",
+    "full_form": "W.C. Application Non Fatal",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "318",
+    "type_name": "DST-LC",
+    "full_form": "Distribution",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "319",
+    "type_name": "AGRMNT-LC",
+    "full_form": "Aggrement",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "320",
+    "type_name": "WC-MIS-LC",
+    "full_form": "W.C. Misc. Application under Rule",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "321",
+    "type_name": "PWAPP-LC",
+    "full_form": "P.W. Application",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "322",
+    "type_name": "PW-MIS-LC",
+    "full_form": "P.W. Misc. Application Under Rule",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "323",
+    "type_name": "MWAPP-LC",
+    "full_form": "M.W.Application",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "324",
+    "type_name": "MWMISC-LC",
+    "full_form": "M.W. Misc. Application Under Rule",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "325",
+    "type_name": "MEDAPP-LC",
+    "full_form": "Medical Appeals",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "326",
+    "type_name": "MAMISC-LC",
+    "full_form": "M.A. Misc. Application Under Rule",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "327",
+    "type_name": "MAREV-LC",
+    "full_form": "M.A.Review Application - Under Rule-31",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "328",
+    "type_name": "PREPNT",
+    "full_form": "PRELIMINARY POINT",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5011"
+  },
+  {
+    "case_type": "329",
+    "type_name": "BIRACT",
+    "full_form": "B.I.R. ACT",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "330",
+    "type_name": "PWACT",
+    "full_form": "P.W. ACT",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "331",
+    "type_name": "CMPNT",
+    "full_form": "COMPLAINT",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  },
+  {
+    "case_type": "332",
+    "type_name": "MSCAPP",
+    "full_form": "MISC. APPLICATION",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5011"
+  },
+  {
+    "case_type": "333",
+    "type_name": "IESO",
+    "full_form": "I.E.S.O",
+    "type_flag": "Civil",
+    "macp": "Y",
+    "matter_flag": null,
+    "census_code": "5010"
+  }
+]

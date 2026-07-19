@@ -1,12 +1,11 @@
 [
   {
-    "external_filing_id": "trial10",
-    "app_filing_number": "FL-10",
-    "court_code": "HRPKC001",
+    "external_filing_id": "trial1",
+    "app_filing_number": "FL-1",
     "court_fee":"10",
     "court_fee_paid":"10",
-    "complainant_name": "10 complainant",
-    "complainant_address": "10 complainant address",
+    "complainant_name": "1 complainant",
+    "complainant_address": "1 complainant address",
     "complainant_mobile": "4567894560",
     "complainant_age": "31",
     "advocate_name": "Divirk+Sharma",

@@ -9,7 +9,9 @@ from __future__ import annotations
 
 import datetime as dt
 import html as html_lib
+import json
 import re
+from pathlib import Path
 from typing import Any
 
 from cis_fetch_common import CisError, CisSession, parse_form, parse_json_response
@@ -504,4 +506,168 @@ def fetch_case_proceeding(session: CisSession, record: dict) -> dict:
     }
 
 
-__all__ = ["fetch_registration", "fetch_case_proceeding"]
+# ------------------------------------------------------------------
+# case_identity: read-only lookup of the long registered case_no + filing_no
+# + party names for a case registered outside this tool. Used to feed
+# bulk_order_upload when registration was done elsewhere.
+#
+# Two input forms:
+#   {"cnr": "HRPK020007192026"}                              -> direct fetchdata
+#   {"case_label": "NACT/11/2026"}                           -> public webservice
+#      getCaseHistoryByCaseNumber.php resolves CNR, then fetchdata.
+# A numeric case_type in the label ("55/11/2026") skips the catalogue lookup.
+# ------------------------------------------------------------------
+
+_CASE_TYPES_CACHE = Path(__file__).resolve().parents[1] / "Data" / "case-types.json"
+
+
+def _load_case_type_catalogue(session: CisSession) -> list[dict]:
+    """Fetch+cache api/getCaseType.php (public, no login) as label->code map."""
+    if _CASE_TYPES_CACHE.exists():
+        try:
+            return json.load(open(_CASE_TYPES_CACHE, encoding="utf-8"))
+        except Exception:
+            pass
+    raw = session.get("api/getCaseType.php")
+    match = re.search(r"\[.*\]", raw, re.S)
+    if not match:
+        raise CisError("case_type_fetch_failed", "getCaseType.php returned no JSON array", raw[:500])
+    try:
+        catalogue = json.loads(match.group(0))
+    except Exception as exc:
+        raise CisError("case_type_fetch_failed", f"getCaseType.php parse failed: {exc}", raw[:500]) from exc
+    if not isinstance(catalogue, list):
+        raise CisError("case_type_fetch_failed", "getCaseType.php did not return a list")
+    _CASE_TYPES_CACHE.parent.mkdir(parents=True, exist_ok=True)
+    _CASE_TYPES_CACHE.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return catalogue
+
+
+def _resolve_case_type_code(session: CisSession, label: str) -> str:
+    """Map a case-type label (NACT) or short name to its numeric code via catalogue."""
+    label = str(label or "").strip()
+    if label.isdigit():
+        return label
+    catalogue = _load_case_type_catalogue(session)
+    key = label.upper()
+    for row in catalogue:
+        if not isinstance(row, dict):
+            continue
+        if str(row.get("type_name", "")).strip().upper() == key or str(row.get("full_form", "")).strip().upper() == key:
+            return str(row.get("case_type") or "").strip()
+    raise CisError("case_type_unknown", f"case type label {label!r} not found in catalogue; pass numeric case_type instead")
+
+
+def _parse_case_label(label: str) -> tuple[str, str, str]:
+    """'NACT/11/2026' or '55/11/2026' -> (case_type, case_number, year)."""
+    parts = [p.strip() for p in str(label or "").split("/") if p.strip()]
+    if len(parts) != 3:
+        raise CisError("invalid_case_label", f"case_label must be 'TYPE/NUMBER/YEAR', got {label!r}")
+    return parts[0], parts[1], parts[2]
+
+
+def _resolve_cnr_from_label(session: CisSession, case_label: str) -> str:
+    """Hop 1: public getCaseHistoryByCaseNumber.php -> CNR. No login needed."""
+    case_type, case_number, year = _parse_case_label(case_label)
+    case_type_code = _resolve_case_type_code(session, case_type)
+    raw = session.get("api/getCaseHistoryByCaseNumber.php", params={
+        "case_type": case_type_code,
+        "case_number": case_number,
+        "year": year,
+    })
+    history = parse_json_response(raw, allow_empty=True)
+    cino = str(history.get("cino") or "").strip()
+    if not cino:
+        raise CisError("not_found", f"getCaseHistoryByCaseNumber returned no cino for {case_label!r}", raw[:500])
+    return cino
+
+
+def fetch_case_identity(session: CisSession, record: dict) -> dict:
+    """Read-only: long case_no + filing_no + party names for an already-registered case.
+
+    Uses case_proceeding fetchdata (one POST, no dependent criminal panels) so it
+    works for a case registered outside this tool. Accepts cnr directly, or
+    case_label resolved via the public webservice first.
+    """
+    cnr = _item(record, "cis_cnr", "cnr", "cino")
+    resolved_from_label = ""
+    if not cnr:
+        case_label = _item(record, "case_label", "registered_case_label", "case_number_label")
+        if not case_label:
+            raise CisError("identifier_missing", "case_identity requires cis_cnr/cnr or case_label")
+        cnr = _resolve_cnr_from_label(session, case_label)
+        resolved_from_label = case_label
+
+    page = session.get("proceedings/case_proceeding.php", params={
+        "linkid": _item(record, "case_proceeding_linkid", default=DEFAULT_CASE_PROCEEDING_LINKID),
+        "mode": _item(record, "case_proceeding_mode", default=DEFAULT_CASE_PROCEEDING_MODE),
+    })
+    base_items = parse_form(page, "frm")
+    base = dict(base_items)
+    case_type = _item(record, "case_type_code", "fmm_case_type", default="55")
+    case_radio = _item(record, "case_type_flag", "civ_cri", default="3")
+    base.update({
+        "case_radio": case_radio,
+        "fcase_no": f"{case_type}~{cnr}~P",
+        "fcino": cnr,
+        "x": "fetchdata",
+        "cino": cnr,
+    })
+    raw = session.post("proceedings/case_proceedingajax.php", base, xhr=True)
+    fetch = parse_json_response(raw)
+    if fetch.get("errcnr"):
+        raise CisError("not_found", "case identity fetchdata returned errcnr", fetch.get("errcnr"))
+    case_no = _s(fetch, "case_no")
+    if not case_no:
+        raise CisError("not_registered", "fetchdata returned no case_no; case may not be registered", {"cino": cnr, "fetchdata_keys": sorted(fetch.keys())})
+    draft = {
+        "external_id": _external_id(record, cnr, prefix="CID"),
+        "cis_cnr": cnr,
+        "case_no": case_no,
+        "cis_filing_no": _s(fetch, "filing_no"),
+        "pet_name": _s(fetch, "pet_name", "eng_pet_name"),
+        "res_name": _s(fetch, "res_name", "eng_res_name"),
+        "registration_date": _ddmmyyyy(_s(fetch, "dt_regis")),
+        "filing_date": _ddmmyyyy(_s(fetch, "date_of_filing")),
+        "_fetched": {
+            "source": "case_proceeding.fetchdata",
+            "requires_user_review": False,
+            "resolved_from_case_label": resolved_from_label,
+        },
+    }
+    return {
+        "status": "prefetched",
+        "cis_cnr": cnr,
+        "draft": draft,
+        "fetched": {
+            "page_form_fields": len(base_items),
+            "fetchdata": fetch,
+        },
+    }
+
+
+__all__ = ["fetch_registration", "fetch_case_proceeding", "fetch_case_identity"]
+
+
+if __name__ == "__main__":
+    # Self-check: label parsing + (if CIS_BASE_URL reachable) case-type catalogue
+    # resolve. Smallest thing that fails if the wiring is off. No login.
+    import os
+    import sys as _sys
+
+    ok = True
+    for label, expect in [("NACT/11/2026", ("NACT", "11", "2026")), ("55/11/2026", ("55", "11", "2026"))]:
+        got = _parse_case_label(label)
+        assert got == expect, f"parse {label} -> {got}, expected {expect}"
+    print("label parsing: OK", file=_sys.stderr)
+
+    base = os.environ.get("CIS_BASE_URL", "").rstrip("/")
+    if not base:
+        print("self-check: CIS_BASE_URL not set; skipping live catalogue resolve", file=_sys.stderr)
+        _sys.exit(0)
+    from cis_fetch_common import CisSession, load_config
+    sess = CisSession(load_config())
+    for label, expect_code in [("55", "55"), ("NACT", "55")]:
+        code = _resolve_case_type_code(sess, label)
+        assert code == expect_code, f"resolve {label} -> {code}, expected {expect_code}"
+    print("case-type catalogue resolve: OK", file=_sys.stderr)

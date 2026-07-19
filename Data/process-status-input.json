@@ -1,0 +1,12 @@
+[
+  {
+    "external_id": "process-status-sample",
+    "from_date": "01-06-2024",
+    "to_date": "17-07-2024",
+    "case_radio": "2",
+    "status_filter": "4",
+    "court_no": "",
+    "type_of_process": "",
+    "page_size": 1000
+  }
+]

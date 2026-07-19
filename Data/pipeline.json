@@ -79,6 +79,19 @@
       "env": {}
     },
     {
+      "name": "case_identity",
+      "run": false,
+      "description": "Prefetch long case_no + filing_no + party names for a case registered OUTSIDE this tool, via case_proceeding fetchdata. Accepts cnr or case_label (NACT/11/2026). Feeds bulk_order_upload.",
+      "input_file": "Data/prefetch-input.json",
+      "output_file": "Data/case-identity-input.prefetched.json",
+      "bridge_script": "",
+      "preflight_script": "",
+      "postcheck_script": "",
+      "transform_from": "",
+      "transform_script": "source/transform_case_identity_to_bulk_order_upload.py",
+      "env": {}
+    },
+    {
       "name": "bulk_order_upload",
       "run": true,
       "description": "Select COURT_NO from Data/config.json, then upload order/judgment PDFs through proceedings/bulkupload.php in the same CIS session. case_no is auto-populated from the registration stage's registered_case_number; order-specific fields (file_path, document_type, order_no, order_date) come from Data/bulk-order-upload-drafts.json.",
@@ -124,6 +137,19 @@
       "input_file": "Data/process-upload-input.json",
       "output_file": "output/cis-process-upload-results.json",
       "bridge_script": "source/process_upload_cis_bridge.sh",
+      "preflight_script": "",
+      "postcheck_script": "",
+      "transform_from": "",
+      "transform_script": "",
+      "env": {}
+    },
+    {
+      "name": "process_status_fetch",
+      "run": false,
+      "description": "Read-only fetch of process service/status rows for a date range via proceedings/process_statusajax.php.",
+      "input_file": "Data/process-status-input.json",
+      "output_file": "output/cis-process-status-results.json",
+      "bridge_script": "source/process_status_fetch_cis_bridge.sh",
       "preflight_script": "",
       "postcheck_script": "",
       "transform_from": "",
