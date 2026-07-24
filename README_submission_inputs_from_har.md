@@ -1,5 +1,9 @@
 # Submission input JSON from `walkthro-23062026/168.144.70.80.har`
 
+> The reference HAR is archived at the repo root as `har files.7z` (the live
+> `walkthro-23062026/` directory is no longer checked out). Extract it with
+> `7z x "har files.7z"` if you need to re-walk the request sequence.
+
 This HAR contains a complete post-filing path for one NACT/138 case:
 
 ```text

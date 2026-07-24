@@ -58,3 +58,39 @@ bash RUN_STAGE.sh allocation       # run one stage
 The pipeline works end-to-end today but is **standalone and hand-driven**. The
 target — sourcing inputs from dristi-v2 and auto-firing stages — is documented in
 [`ROADMAP_dristi_v2_integration.md`](./ROADMAP_dristi_v2_integration.md).
+
+## What this is not
+
+These are the known limitations of V3 today. Most are flagged as pending work
+in the roadmap.
+
+1. **Not a fully functional CIS integration.** It is a stage-by-stage
+   execution engine that drives a subset of the CIS AJAX flow for specific use
+   cases (NACT/138 cheque-bounce, post-filing chain). It is not a complete,
+   production-grade CIS integration.
+2. **Inputs were built manually.** Most `Data/*.json` inputs were hand-authored.
+   A few stages have a read-only prefetch (`fetch_stage_inputs.sh`, the
+   `process_prefetch` stage, `case_identity`) that pulls data from CIS, but the
+   majority of inputs are created by hand or by transforms chained off the
+   filing output — not sourced from the modern system.
+3. **Integration with the new system is not fully available.** The dristi-v2
+   integration — sourcing inputs from the modern app's export endpoints and
+   posting results back per stage — is **planning only**, not built. Today only
+   stage 1 (filing) has a partial bridge on the dristi-v2 side; the full chain
+   is not wired up. See `ROADMAP_dristi_v2_integration.md`.
+4. **Not all scenarios are covered.** The pipeline is built around NACT/138
+   cheque-bounce cases. Other case types, statutes, and stage mixes are not
+   yet wired up. The filing bridge hardcodes `ffiling_no_type = 55 (NACT)`.
+5. **Court number is assumed static.** `COURT_NO` lives in `Data/config.json`
+   and is treated as a single fixed court (one court per deployment). It also
+   appears in some input JSONs (`case-proceeding-input.json`,
+   `select-court-input.json`, `process-status-input.json`), but the bridges
+   read it from env/config first and fall back to the record value — so the
+   per-record value is effectively unused. For a multi-court deployment the
+   new filing system should pass `court_no` per record and the bridges should
+   rely on the record, not the config.
+6. **`filing_no` is not mandatory for order uploads.** `bulk_order_upload`
+   requires `cis_cnr` + the registered `case_no` (digits only); it does not
+   require `cis_filing_no`. This is intentional for cases e-filed on eCourts
+   (a different system): the CIS `filing_no` may not exist, but the order can
+   still be uploaded against the registered case.

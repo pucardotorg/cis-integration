@@ -3,9 +3,8 @@
 Files:
 
 ```text
-Automation_Script/cheque_cis_bridge_template.sh
-Automation_Script/cheque_bridge_payload_template.json
-Automation_Script/verify_cheque_cis_bridge.sh   # droplet verification + cleanup
+source/cheque_cis_bridge_template.sh         # the worker (curl + openssl + python)
+Data/cis-daily-filings-2026-06-26.json        # sample file-mode input (real record shape)
 ```
 
 ## What this is
@@ -29,43 +28,75 @@ Court staff does not need to open CIS UI or copy output.
 
 ## Configuration
 
+The bridge runs in two modes. **File mode** is the pipeline default:
+`RUN_PIPELINE.sh` / `RUN_STAGE.sh` load `Data/config.json` via
+`source/load_config.sh` (exports `CIS_BASE_URL`, `COURT_CODE`, `CIS_USER`,
+`CIS_PASSWORD`, `UNLOCK_PASSWORD`, `LOGIN_DATE`, `LANG_ID`, `CLOUD_FLAG`,
+`COURT_NO`, …) and set `INPUT_JSON` / `OUTPUT_JSON` from `Data/pipeline.json`.
+
+```bash
+cd uploader/V3
+bash RUN_STAGE.sh filing                       # file mode (pipeline default)
+# or standalone:
+export CIS_BASE_URL COURT_CODE CIS_USER CIS_PASSWORD   # or: source source/load_config.sh .
+export INPUT_JSON="Data/cis-daily-filings-2026-06-26.json"
+export OUTPUT_JSON="output/cis-results.json"
+bash source/cheque_cis_bridge_template.sh
+```
+
+**API mode** (pull from / push to a modern app) is the alternative — set
+`MODERN_PULL_URL` + `MODERN_CALLBACK_URL` instead of `INPUT_JSON` / `OUTPUT_JSON`:
+
 ```bash
 export CIS_BASE_URL="http://<cis-host>/swecourtis"
 export COURT_CODE="HRPK02"
 export CIS_USER="<cis-user>"
 export CIS_PASSWORD="<cis-password>"
-
-export MODERN_PULL_URL="https://your-app.example.com/api/cis/pending-cheque-filings"
-export MODERN_CALLBACK_URL="https://your-app.example.com/api/cis/filing-result"
+export MODERN_PULL_URL="https://your-app.example.com/api/cis/daily-export"
+export MODERN_CALLBACK_URL="https://your-app.example.com/api/cis/import-results"
 export MODERN_API_KEY="<shared-secret-or-token>"
-
-bash Automation_Script/cheque_cis_bridge_template.sh
+bash source/cheque_cis_bridge_template.sh
 ```
 
-## Pull API response expected from your modern app
+## Pull API response expected from your modern app (API mode)
 
-Return a JSON array. Example in:
+Return a JSON array. A real file-mode sample lives at
+`Data/cis-daily-filings-2026-06-26.json` (same shape works for API mode — the
+bridge reads whichever `INPUT_JSON` or `MODERN_PULL_URL` provides).
 
-```text
-Automation_Script/cheque_bridge_payload_template.json
-```
-
-Minimum fields:
+Minimum fields (record shape used by the bridge):
 
 ```json
 [
   {
     "external_filing_id": "APP-123",
+    "app_filing_number": "FL-123",
+    "court_fee": "10",
+    "court_fee_paid": "10",
     "complainant_name": "ABC TRADERS",
+    "complainant_address": "Address 1",
+    "complainant_mobile": "9999999999",
+    "complainant_age": "35",
     "accused_name": "RAJ KUMAR",
+    "accused_address": "Address 2",
+    "accused_mobile": "8888888888",
+    "accused_age": "40",
+    "advocate_name": "Advocate Name",
+    "advocate_bar_number": "P/1234/2020",
+    "advocate_code": "298",
     "cheque_amount": "100000",
+    "cheque_number": "123456",
+    "cheque_date": "01-06-2026",
+    "dishonour_date": "05-06-2026",
+    "cause_of_action_date": "05-06-2026",
     "cause_of_action": "Cheque dishonoured due to insufficient funds.",
     "relief": "Complaint under Section 138 of Negotiable Instruments Act."
   }
 ]
 ```
 
-Recommended fields include local-language names/addresses, mobile numbers, cheque number/date, dishonour date.
+Recommended additions: local-language name/address fields, advocate email/mobile
+(retained for upstream/audit; the CIS filing form has no advocate mobile/email field).
 
 ## Callback API payload sent to your modern app
 
@@ -105,15 +136,17 @@ Filing endpoint: /swecourtis/filing/civil_filingajaxnew.php
 
 ## Verification
 
-Run `Automation_Script/verify_cheque_cis_bridge.sh` on the droplet to:
+The filing stage has no read-only verifier (unlike allocation, which has
+`source/verify_allocation_cis_bridge.sh` as preflight/postcheck). For a no-write
+smoke check use the pipeline flags:
 
-1. Log in to CIS.
-2. Submit one test NACT cheque-bounce filing.
-3. Capture the generated Filing No. / CNR.
-4. Delete the test case from `civil_t` and `ecivil_t`.
-5. Log out of CIS.
+```bash
+bash RUN_PIPELINE.sh --validate        # confirm filing input JSON present + well-formed
+bash RUN_STAGE.sh filing --dry-run     # resolve paths + config, no CIS calls
+```
 
-Edit the hardcoded test payload inside the script before running.
+To verify a live filing end-to-end, run the stage against a training/staging CIS
+and inspect `output/DDMMYYYY/<run-id>-cis-results.json` for `cis_cnr` per record.
 
 ## Notes
 

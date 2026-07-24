@@ -53,7 +53,7 @@ a real run to confirm you have the inputs for every step. No CIS login, no write
 Drishti filing batch  (carries target_court_no + fmm_case_type per record)   ← today: hand-authored in Data/; target: from dristi-v2 (see ROADMAP)
   │  1. STAGE filing    (cheque bridge, file mode)
   ▼
-output/DDMMYYYY/<run-id>-filing-cis-results.json
+output/DDMMYYYY/<run-id>-cis-results.json
   │
   ├─ TRANSFORM transform_filing_to_allocation.py
   ▼
@@ -61,31 +61,53 @@ Data/allocation-input.json
   │  2. STAGE allocation
   │     preflight  ->  submit (formaction=8)  ->  postcheck
   ▼
-output/DDMMYYYY/<run-id>-allocation-cis-allocation-results.json
+output/DDMMYYYY/<run-id>-cis-allocation-results.json
   │
   ├─ TRANSFORM transform_allocation_to_select_court.py
   ▼
 Data/select-court-input.json
   │  3. STAGE court mapping / select_court
   ▼
-output/DDMMYYYY/<run-id>-select_court-cis-select-court-results.json
+output/DDMMYYYY/<run-id>-cis-select-court-results.json
   │
   ├─ TRANSFORM transform_filing_to_case_objection.py  (uses filing output)
   ▼
 Data/case-objection-input.json
   │  4. STAGE objection / scrutiny
   ▼
-output/DDMMYYYY/<run-id>-case_objection-cis-case-objection-results.json
+output/DDMMYYYY/<run-id>-cis-case-objection-results.json
   │
   ├─ TRANSFORM transform_case_objection_to_registration.py
   ▼
 Data/registration-input.json
   │  5. STAGE case registration
   ▼
-output/DDMMYYYY/<run-id>-registration-cis-registration-results.json
+output/DDMMYYYY/<run-id>-cis-registration-results.json
+  │  6. STAGE case_proceeding         (typed next-hearing / disposal / NBW input)
+  ▼
+output/DDMMYYYY/<run-id>-cis-case-proceeding-results.json
+  │  7. STAGE bulk_order_upload       (transform_from registration; order
+  │                                    metadata from Data/bulk-order-upload-drafts.json)
+  ▼
+output/DDMMYYYY/<run-id>-cis-bulk-order-upload-results.json
+  │  8. STAGE process_prefetch         (output_file is Data/process-generation-input.json,
+  │                                    so it stays canonical/editable, not dated)
+  ▼
+Data/process-generation-input.json
+  │  9. STAGE process_generation       (drafts + draft PDFs)
+  ▼
+output/DDMMYYYY/<run-id>-cis-process-generation-results.json
+  │ 10. STAGE process_upload           (upload signed process PDF)
+  ▼
+output/DDMMYYYY/<run-id>-cis-process-upload-results.json
   ▼
 output/DDMMYYYY/<run-id>-pipeline-summary.json  +  printed summary table
 ```
+
+Disabled by default (`run=false`): `case_identity` (prefetch-only transform
+for cases registered outside this tool), `process_status_fetch` (read-only),
+and `publish_process` (optional publish/delete-draft; `transform_from`
+`process_generation`). Enable them in `Data/pipeline.json` when needed.
 
 Each stage: optional **transform** (from a prior stage output) → optional **preflight**
 (read-only gate; errors abort the stage by default) → **bridge script** → optional
@@ -100,61 +122,65 @@ inspect/retry independently.
     {
       "name": "filing",
       "run": true,
-      "input_file": "Data/cis-daily-filings-2026-06-15.json",
+      "description": "Create cheque-bounce cases in CIS (NACT/138 NIA). Produces cis_cnr per case.",
+      "input_file": "Data/cis-daily-filings-2026-06-26.json",
       "output_file": "output/cis-results.json",
       "bridge_script": "source/cheque_cis_bridge_template.sh",
       "preflight_script": "",
       "postcheck_script": "",
       "transform_from": "",
-      "transform_script": ""
+      "transform_script": "",
+      "env": {}
     },
     {
       "name": "allocation",
       "run": true,
-      "input_file": "output/allocation-input.json",
+      "description": "Allocate each filed case to target_court_no via bulk_allocation (formaction=8).",
+      "input_file": "Data/allocation-input.json",
       "output_file": "output/cis-allocation-results.json",
       "bridge_script": "source/allocation_cis_bridge_template.sh",
       "preflight_script": "source/verify_allocation_cis_bridge.sh",
       "postcheck_script": "source/verify_allocation_cis_bridge.sh",
       "transform_from": "filing",
-      "transform_script": "source/transform_filing_to_allocation.py"
+      "transform_script": "source/transform_filing_to_allocation.py",
+      "env": {}
     },
     {
-      "name": "select_court",
+      "name": "process_prefetch",
       "run": true,
-      "input_file": "output/select-court-input.json",
-      "output_file": "output/cis-select-court-results.json",
-      "bridge_script": "source/select_court_cis_bridge.sh",
+      "description": "Prefetch accused/addressees and addresses for process generation; output is user-editable.",
+      "input_file": "Data/process-prefetch-input.json",
+      "output_file": "Data/process-generation-input.json",
+      "bridge_script": "source/process_prefetch_cis_bridge.sh",
       "preflight_script": "",
       "postcheck_script": "",
-      "transform_from": "allocation",
-      "transform_script": "source/transform_allocation_to_select_court.py"
+      "transform_from": "",
+      "transform_script": "",
+      "env": {}
     },
     {
-      "name": "case_objection",
-      "run": true,
-      "input_file": "output/case-objection-input.json",
-      "output_file": "output/cis-case-objection-results.json",
-      "bridge_script": "source/case_objection_cis_bridge.sh",
+      "name": "publish_process",
+      "run": false,
+      "description": "Optional: publish generated process/notices, or delete generated draft notices when action=delete_draft.",
+      "input_file": "Data/publish-process-input.json",
+      "output_file": "output/cis-publish-process-results.json",
+      "bridge_script": "source/publish_process_cis_bridge.sh",
       "preflight_script": "",
       "postcheck_script": "",
-      "transform_from": "filing",
-      "transform_script": "source/transform_filing_to_case_objection.py"
-    },
-    {
-      "name": "registration",
-      "run": true,
-      "input_file": "output/registration-input.json",
-      "output_file": "output/cis-registration-results.json",
-      "bridge_script": "source/registration_cis_bridge.sh",
-      "preflight_script": "",
-      "postcheck_script": "",
-      "transform_from": "case_objection",
-      "transform_script": "source/transform_case_objection_to_registration.py"
+      "transform_from": "process_generation",
+      "transform_script": "source/transform_process_generation_to_publish_process.py",
+      "env": {}
     }
   ]
 }
 ```
+
+The real manifest in `Data/pipeline.json` has **13 stages**: the four shapes above
+(plain, transform+gates, `Data/`-output, disabled) plus `select_court`,
+`case_objection`, `registration`, `case_proceeding`, `case_identity` (off),
+`bulk_order_upload`, `process_generation`, `process_upload`, and
+`process_status_fetch` (off). Treat `Data/pipeline.json` as the source of truth;
+the block above only illustrates the field shapes.
 
 ### Adding a future use case
 
@@ -164,12 +190,14 @@ Append a stage object. Fields:
 |---|---|
 | `name` | unique stage id; referenced by `transform_from` |
 | `run` | `true`/`false` to skip |
-| `input_file` / `output_file` | relative to the uploader dir |
-| `bridge_script` | worker `.sh` (file mode: reads `INPUT_JSON`/`OUTPUT_JSON` env) |
+| `description` | optional; one-line human summary shown by `RUN_STAGE.sh --list` |
+| `input_file` / `output_file` | relative to the uploader dir. `output/...` paths get a dated run artifact; `Data/...` paths stay canonical/editable |
+| `bridge_script` | worker `.sh` (file mode: reads `INPUT_JSON`/`OUTPUT_JSON` env). Empty for prefetch-only stages that only run a transform |
 | `preflight_script` | optional; called as `<script> --preflight <input> <report>` |
 | `postcheck_script` | optional; called as `<script> --postcheck <output> <report>` |
 | `transform_from` | optional; name of upstream stage whose output feeds this stage |
 | `transform_script` | optional; `python3 <script> <src> <dst> [summary]` |
+| `env` | optional; object of extra env vars for the stage's bridge (rarely used) |
 
 ## Where `target_court_no` and `allocation_dt` come from (Option A)
 
@@ -198,14 +226,27 @@ ok/total/fail, preflight ok/error, postcheck ok/mismatch.
 Each run writes to the current day folder and prefixes related files with a shared run id
 (`HHMMSS-rand`) so runs never overwrite each other and remain auditable.
 
+**Naming rule:** a stage's result file is `<run-id>-<basename of its output_file>`.
+Stages whose `output_file` lives under `Data/` (e.g. `process_prefetch`,
+`case_identity`) keep their canonical path and are **not** dated. Preflight /
+postcheck reports are `<run-id>-<stage>-preflight-report.json` /
+`<run-id>-<stage>-postcheck-report.json` (only stages with a gate script emit
+these; today only `allocation`).
+
 ```text
-output/DDMMYYYY/<run-id>-filing-cis-results.json
-output/DDMMYYYY/<run-id>-allocation-cis-allocation-results.json
+output/DDMMYYYY/<run-id>-cis-results.json                 (filing)
+output/DDMMYYYY/<run-id>-cis-allocation-results.json     (allocation)
 output/DDMMYYYY/<run-id>-allocation-preflight-report.json
 output/DDMMYYYY/<run-id>-allocation-postcheck-report.json
-output/DDMMYYYY/<run-id>-select_court-cis-select-court-results.json
-output/DDMMYYYY/<run-id>-case_objection-cis-case-objection-results.json
-output/DDMMYYYY/<run-id>-registration-cis-registration-results.json
+output/DDMMYYYY/<run-id>-cis-select-court-results.json   (select_court)
+output/DDMMYYYY/<run-id>-cis-case-objection-results.json  (case_objection)
+output/DDMMYYYY/<run-id>-cis-registration-results.json   (registration)
+output/DDMMYYYY/<run-id>-cis-case-proceeding-results.json (case_proceeding)
+output/DDMMYYYY/<run-id>-cis-bulk-order-upload-results.json (bulk_order_upload)
+output/DDMMYYYY/<run-id>-cis-process-generation-results.json (process_generation)
+output/DDMMYYYY/<run-id>-cis-process-upload-results.json  (process_upload)
+output/DDMMYYYY/<run-id>-cis-process-status-results.json  (process_status_fetch, off)
+output/DDMMYYYY/<run-id>-cis-publish-process-results.json (publish_process, off)
 output/DDMMYYYY/<run-id>-pipeline-summary.json
 output/DDMMYYYY/<run-id>-run-manifest.json
 ```
